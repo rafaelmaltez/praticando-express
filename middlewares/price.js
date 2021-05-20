@@ -9,7 +9,8 @@ module.exports = async (req, res) => {
   if(!isValidToken || token.length !== 12 || typeof token !== 'string') {
     res.status(403).send('invalid token')
   }
-  const bitcoin = await axios.get(api).json();
+  const bitcoin = await axios.get(api);
+  const bitcoinTwo = await bitcoin.json()
   console.log(bitcoin);
   res.status(200).json(bitcoin);
 }
